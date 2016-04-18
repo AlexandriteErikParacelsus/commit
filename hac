@@ -1,0 +1,12 @@
+mkdir pch-chart
+cd pch-chart
+curl -o pattern-ducks.txt https://raw.githubusercontent.com/stcruy/public-contrib-hack/master/pattern-ducks.txt
+curl -o patternToDates.js https://raw.githubusercontent.com/stcruy/public-contrib-hack/master/patternToDates.js
+curl -o datesToCommits.sh https://raw.githubusercontent.com/stcruy/public-contrib-hack/master/datesToCommits.sh
+chmod +x datesToCommits.sh
+
+git init
+git remote add origin git@github.com:ErikParacelsus/pch-chart.git
+node patternToDates.js pattern-ducks.txt
+./datesToCommits.sh
+git push -u origin master
